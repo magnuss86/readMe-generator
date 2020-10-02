@@ -1,6 +1,10 @@
 const inquirer = require("inquirer")
 const fs = require("fs")
 
+function readMeGen() {
+    
+
+
 inquirer.prompt([
     {
         type:"input",
@@ -9,7 +13,7 @@ inquirer.prompt([
     },
     {
         type:"input",
-        name:"projectDescription",
+        name:"description",
         message:"Please describe what the application/project is",
     },
     {
@@ -69,56 +73,81 @@ inquirer.prompt([
     },
   
 ]).then(function(response){
-    // console.log(
-    //     `#Title
-    //     ${response.title}
-    //     Installation
-    //     ${response.installation}`
-    //     );
+ 
     const readMeTemplate =
 
 `# ${response.title}
 
 ## Table of Contents
 
-1.[Inroduction ](#intro)
+1.[Description ](#description)
+
 2.[Installation](#installation)
+
 3.[Usage](#usage)
+
 4.[License](#license)
+
 5.[Contributors](#contributor)
+
 6.[Tests](#tests)
+
 7.[Questions](#questions)
+
+<br>
+
+<a name="intro"></a>
+## 1. Description
+${response.description}
+
+<a name="install"></a>
+### 2. Installation
+${response.installation}
+
+<a name="usage"></a>
+### 3. Usage
+${response.usage}
+
+
+<a name="license"></a>
+### 4. License
+${response.license}
+
+
+<a name="contributors"></a>
+### 5. Contributors
+${response.contributions}
+
+
+<a name="tests"></a>
+### 6. Tests
+${response.tests}
+
+<a name="questions"></a>
+### 7. Contact Information
+
+GitHub Username: ${response.githubUsername}
+
+GitHub Link: ${response.gitHubLink}
+
+Email: ${response.email}`
+
+
+const fileName = `${response.title.replace(/\s/g, '').toLowerCase()}.md`;
+
+fs.writeFile(fileName, readMeTemplate, function(err){
+    if(err) {
+        return console.log(err);
+    }
+    console.log("success!");
+    });
+
+
 
   
 })
 
 
+}
 
-
-//GIVEN a command-line application that accepts user input
-
-// *user prompt with questions
-
-//WHEN I am prompted for information about my application repository
-// *
-
-//Questions that need answers
-    //Description, 
-        //-answer.fdescription
-    //Table of Contents, 
-        //-when I click on the titles of the things, I am take nto that section
-    //Installation, 
-        //-answer
-    //Usage, 
-    //License, 
-        // --list of options
-        // --a badge for license is added to top of readme
-        //-- a notice is added to the section of the readme license explaining which license 
-    //Contributing, 
-    //Tests
-    //Questions
-        //Github Username- link to profile
-        //email - instructions on how to reach me
-
-        //WRITE IT ALL TO A DOCUMENT
-            // fs.writeFile()
+readMeGen()
