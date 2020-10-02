@@ -5,31 +5,91 @@ inquirer.prompt([
     {
         type:"input",
         name:"title",
-        message:"What is the title of your Project?"
+        message:"What is the title of your Project?",
     },
     {
         type:"input",
-        name:"location",
-        message:"What is your location?"
+        name:"projectDescription",
+        message:"Please describe what the application/project is",
     },
     {
         type:"input",
-        name:"bio",
-        message:"Tell us about yourself? maybe??"
+        name:"installation",
+        message:"What are the necessary steps to run the application?",
     },
     {
         type:"input",
-        name:"linkedin",
-        message:"What is your linkedin username?"
+        name:"usage",
+        message:"How is this application used?",
+    },
+    {
+        type:"list",
+        name:"license",
+        message: 'Please select the license you have',
+        choices: [
+            "Apache",
+            "Boost",
+            "Boost",
+            "Creative Commons",
+            "Eclipse",
+            "GNU",
+            "IBM",
+            "ISC",
+            "MIT",
+            "Mozilla",
+            "Open Data Commons",
+            "Sil",
+            "Unlicense",
+            ],
     },
     {
         type:"input",
-        name:"github",
-        message:"What is your github username?"
-    }
-]).then(function(answers){
-    console.log(answers);
-   console.log(htmlTemplet(answers))
+        name:"contributions",
+        message:"Who has contributed to this project?",
+    },
+    {
+        type:"input",
+        name:"tests",
+        message:"What tests have you performed on the application?",
+    },
+    {
+        type:"input",
+        name:"githubUsername",
+        message:"What is your GitHub user name?",
+    },
+    {
+        type:"input",
+        name:"gitHubLink",
+        message:"What is the link to your GitHub profile?",
+    },
+    {
+        type:"input",
+        name:"email",
+        message:"What is your email for questions about the application?",
+    },
+  
+]).then(function(response){
+    // console.log(
+    //     `#Title
+    //     ${response.title}
+    //     Installation
+    //     ${response.installation}`
+    //     );
+    const readMeTemplate =
+
+`# ${response.title}
+
+## Table of Contents
+
+1.[Inroduction ](#intro)
+2.[Installation](#installation)
+3.[Usage](#usage)
+4.[License](#license)
+5.[Contributors](#contributor)
+6.[Tests](#tests)
+7.[Questions](#questions)
+
+  
 })
 
 
@@ -37,21 +97,28 @@ inquirer.prompt([
 
 //GIVEN a command-line application that accepts user input
 
-// *user prompt with quesstions
+// *user prompt with questions
 
 //WHEN I am prompted for information about my application repository
 // *
 
-//THEN a quality, professional README.md is generated with the title of your project and sections entitled Description, Table of Contents, Installation, Usage, License, Contributing, Tests, and Questions
-//WHEN I enter my project title
-//THEN this is displayed as the title of the README
-//WHEN I enter a description, installation instructions, usage information, contribution guidelines, and test instructions
-//THEN this information is added to the sections of the README entitled Description, Installation, Usage, Contributing, and Tests
-//WHEN I choose a license for my application from a list of options
-//THEN a badge for that license is added hear the top of the README and a notice is added to the section of the README entitled License that explains which license the application is covered under
-//WHEN I enter my GitHub username
-//THEN this is added to the section of the README entitled Questions, with a link to my GitHub profile
-//WHEN I enter my email address
-//THEN this is added to the section of the README entitled Questions, with instructions on how to reach me with additional questions
-//WHEN I click on the links in the Table of Contents
-//THEN I am taken to the corresponding section of the README
+//Questions that need answers
+    //Description, 
+        //-answer.fdescription
+    //Table of Contents, 
+        //-when I click on the titles of the things, I am take nto that section
+    //Installation, 
+        //-answer
+    //Usage, 
+    //License, 
+        // --list of options
+        // --a badge for license is added to top of readme
+        //-- a notice is added to the section of the readme license explaining which license 
+    //Contributing, 
+    //Tests
+    //Questions
+        //Github Username- link to profile
+        //email - instructions on how to reach me
+
+        //WRITE IT ALL TO A DOCUMENT
+            // fs.writeFile()
