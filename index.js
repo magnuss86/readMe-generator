@@ -32,18 +32,22 @@ inquirer.prompt([
         message: 'Please select the license you have',
         choices: [
             "Apache",
-            "Boost",
-            "Boost",
             "Creative Commons",
-            "Eclipse",
-            "GNU",
             "IBM",
-            "ISC",
             "MIT",
             "Mozilla",
-            "Open Data Commons",
-            "Sil",
-            "Unlicense",
+            ],
+    },
+    {
+        ype:"list",
+        name:"licenseColor",
+        message: 'Please select the color of the license you would like',
+        choices: [
+            "Apache",
+            "Creative Commons",
+            "IBM",
+            "MIT",
+            "Mozilla",
             ],
     },
     {
@@ -80,7 +84,7 @@ inquirer.prompt([
 
 ## Table of Contents
 
-1.[Description ](#description)
+1.[Description](#description)
 
 2.[Installation](#installation)
 
@@ -96,35 +100,36 @@ inquirer.prompt([
 
 <br>
 
-<a name="intro"></a>
-## 1. Description
+
+## 1. Description {#description}
 ${response.description}
 
-<a name="install"></a>
-### 2. Installation
+
+### 2. Installation {#installation}
 ${response.installation}
 
-<a name="usage"></a>
-### 3. Usage
+
+### 3. Usage {#usage}
 ${response.usage}
 
 
-<a name="license"></a>
-### 4. License
+
+### 4. License {#license}
 ${response.license}
+![Software License](https://img.shields.io/static/v1?label=License&message=${response.license}&color=blue)
 
 
-<a name="contributors"></a>
-### 5. Contributors
+
+### 5. Contributors {#contributor}
 ${response.contributions}
 
 
-<a name="tests"></a>
-### 6. Tests
+
+### 6. Tests {#tests}
 ${response.tests}
 
-<a name="questions"></a>
-### 7. Contact Information
+
+### 7. Contact Information {#questions}
 
 GitHub Username: ${response.githubUsername}
 
