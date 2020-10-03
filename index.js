@@ -39,15 +39,15 @@ inquirer.prompt([
             ],
     },
     {
-        ype:"list",
+        type:"list",
         name:"licenseColor",
         message: 'Please select the color of the license you would like',
         choices: [
-            "Apache",
-            "Creative Commons",
-            "IBM",
-            "MIT",
-            "Mozilla",
+            "brightgreen",
+            "red",
+            "blue",
+            "lightgrey",
+            "yellow",
             ],
     },
     {
@@ -116,7 +116,7 @@ ${response.usage}
 
 ### 4. License {#license}
 ${response.license}
-![Software License](https://img.shields.io/static/v1?label=License&message=${response.license}&color=blue)
+![Software License](https://img.shields.io/static/v1?label=License&message=${response.license}&color=${response.licenseColor})
 
 
 
